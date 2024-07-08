@@ -24,7 +24,8 @@ class GlobalExceptionHandler(private val objcetMapper: ObjectMapper): ErrorWebEx
         // 그 외 기타 Exception 발생 시 500 에러로 처리
         val errorResponse = if (ex is ServerException) {
             ErrorResponse(code = ex.code, message = ex.message)
-        } else {
+        }
+        else {
             ErrorResponse(code = 500, message = "Internal Server Error")
         }
 
